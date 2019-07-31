@@ -190,9 +190,9 @@ namespace XiaomiMediaDistributor
 
         private void DisplayProcessPercent(int totalCount, int finishedCount)
         {
-            var percent = finishedCount * 100 / totalCount;
+            var percent = finishedCount * 100 / (double)totalCount;
 
-            var needToShow = percent % 5 == 0;
+            var needToShow = percent % 10 == 0;
 
             if (needToShow)
                 Console.WriteLine($"Выполнено {percent}%");
