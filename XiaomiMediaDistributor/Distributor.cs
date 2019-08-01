@@ -33,7 +33,8 @@ namespace XiaomiMediaDistributor
         #region Methods
 
         public void Distribute()
-        {           
+        {
+            if (!AskUserForStartDistribution()) return;
 
             if (!IsDirectoryExists(_sourceDirectory))
             {
@@ -61,6 +62,8 @@ namespace XiaomiMediaDistributor
         #endregion
 
         #region Helpers
+
+        protected abstract bool AskUserForStartDistribution();
 
         private bool IsDirectoryExists(string directory)
         {

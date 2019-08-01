@@ -16,6 +16,19 @@ namespace XiaomiMediaDistributor
 
         #region Helpers
 
+        protected override bool AskUserForStartDistribution()
+        {
+            Console.Write("Выполнить сортировку видеозаписей? (да/нет): ");
+            var userResponce = Console.ReadLine();
+
+            if (userResponce.ToLower() == "да") return true;
+            if (userResponce.ToLower() == "нет") return false;
+
+            Console.WriteLine("Введите корректный ответ!");
+
+            return AskUserForStartDistribution();
+        }
+
         protected override void DisplayFilesCount(int filesCount)
         {
             Console.WriteLine($"Обнаружено {filesCount} видеозаписей");
